@@ -1,9 +1,10 @@
-import Footer from '@/components/Footer';
-import Navbar from '@/components/Navbar';
-import classNames from '@/utils/classNames';
-import { Roboto } from 'next/font/google';
-import { Toaster } from 'react-hot-toast';
-import './globals.css';
+import Footer from "@/components/Footer";
+import Navbar from "@/components/Navbar";
+import Providers from "@/providers";
+import classNames from "@/utils/classNames";
+import { Roboto } from "next/font/google";
+import { Toaster } from "react-hot-toast";
+import "./globals.css";
 
 const roboto = Roboto({
   weight: ["100", "300", "400", "500", "700", "900"],
@@ -12,9 +13,9 @@ const roboto = Roboto({
 });
 
 export const metadata = {
-  title: 'Quick Cart',
-  description: 'Quick Cart is an e-commerce web application',
-}
+  title: "Quick Cart",
+  description: "Quick Cart is an e-commerce web application",
+};
 
 const RootLayout = ({ children }) => {
   return (
@@ -25,6 +26,7 @@ const RootLayout = ({ children }) => {
           "container mx-auto px-2 font-roboto lg:px-10"
         )}
       >
+        <Providers>
           <div className="flex min-h-screen flex-col justify-between">
             <div>
               <Navbar />
@@ -32,6 +34,7 @@ const RootLayout = ({ children }) => {
             </div>
             <Footer />
           </div>
+        </Providers>
         <Toaster />
       </body>
     </html>
