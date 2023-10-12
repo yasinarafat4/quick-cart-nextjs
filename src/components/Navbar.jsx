@@ -1,10 +1,14 @@
+"use client"
+import { afterLoginNavData, beforeLoginNavData } from "@/data/navData";
 import Image from "next/image";
 import Link from "next/link";
 import NavLink from "./NavLink";
 
 const Navbar = () => {
-    return (
-        <nav className="navbar sticky top-0 z-10 bg-slate-200 shadow-lg dark:bg-slate-900 lg:pr-3">
+  const user = null;
+  const navData = user ? afterLoginNavData : beforeLoginNavData;
+  return (
+    <nav className="navbar sticky top-0 z-10 bg-slate-200 shadow-lg dark:bg-slate-900 lg:pr-3">
       <div className="flex-1">
         <Link href="/" className="btn-ghost btn text-2xl normal-case">
           Quick Cart
@@ -14,7 +18,7 @@ const Navbar = () => {
         className={`absolute top-[4.5rem] flex w-full flex-col bg-slate-200 pb-3 pt-2 transition-all duration-300 dark:bg-slate-900 lg:static lg:w-[unset] lg:flex-row lg:bg-transparent lg:pb-0 lg:pt-0 dark:lg:bg-transparent`}
       >
         <ul className="menu menu-horizontal flex-col px-1 lg:flex-row">
-          {[].map(({ path, title }) => (
+          {navData.map(({ path, title }) => (
             <li key={path} className="mx-auto">
               <NavLink
                 onClick={() => setNavToggle(false)}
@@ -55,11 +59,12 @@ const Navbar = () => {
           >
             <div className="card-body">
               <span className="text-lg font-bold">
-                {/* {cart.length} Items</span> */}1 Items</span>
+                {/* {cart.length} Items</span> */}1 Items
+              </span>
               <span className="text-info">Total:999 $</span>
               {/* </span>{total.toFixed(2)}
               </span> */}
-              
+
               <div className="card-actions">
                 <Link href="/checkout" className="block w-full">
                   <button className="btn-primary btn-block btn">
@@ -71,49 +76,49 @@ const Navbar = () => {
           </div>
         </div>
         {/* {uid && ( */}
-          <div className="dropdown-end dropdown">
-            <label tabIndex={0} className="btn-ghost btn-circle avatar btn">
-              <div className="w-10 rounded-full">
-                <Image
-                  alt="user-logo"
+        <div className="dropdown-end dropdown">
+          <label tabIndex={0} className="btn-ghost btn-circle avatar btn">
+            <div className="w-10 rounded-full">
+              <Image
+                alt="user-logo"
                 //   title={displayName}
-                  src={
-                    
-                    "https://i.ibb.co/0QZCv5C/png-clipart-user-profile-computer-icons-login-user-avatars-monochrome-black.png"
-                  }
-                  width={40}
-                  height={40}
-                  className="h-10 w-10 rounded-full"
-                />
-              </div>
-            </label>
-            <ul
-              tabIndex={0}
-              className="menu-compact dropdown-content menu rounded-box mt-3 w-52 bg-base-100 p-2 shadow"
-            >
-              <li className="mb-2 mt-1 text-center font-semibold">
-                {/* {displayName || "No User"} */}{"Name"}
-              </li>
-              <div className="divider my-0"></div>
-              <li className="mb-2">
-                <NavLink
-                  href="/profile"
-                  className="text-lg"
-                  activeClassName="text-blue-500"
-                >
-                  Profile
-                </NavLink>
-              </li>
-              <li className="">
-                <button
+                src={
+                  "https://i.ibb.co/0QZCv5C/png-clipart-user-profile-computer-icons-login-user-avatars-monochrome-black.png"
+                }
+                width={40}
+                height={40}
+                className="h-10 w-10 rounded-full"
+              />
+            </div>
+          </label>
+          <ul
+            tabIndex={0}
+            className="menu-compact dropdown-content menu rounded-box mt-3 w-52 bg-base-100 p-2 shadow"
+          >
+            <li className="mb-2 mt-1 text-center font-semibold">
+              {/* {displayName || "No User"} */}
+              {"Name"}
+            </li>
+            <div className="divider my-0"></div>
+            <li className="mb-2">
+              <NavLink
+                href="/profile"
+                className="text-lg"
+                activeClassName="text-blue-500"
+              >
+                Profile
+              </NavLink>
+            </li>
+            <li className="">
+              <button
                 //   onClick={handleLogout}
-                  className="btn-warning btn content-center text-white"
-                >
-                  Logout
-                </button>
-              </li>
-            </ul>
-          </div>
+                className="btn-warning btn content-center text-white"
+              >
+                Logout
+              </button>
+            </li>
+          </ul>
+        </div>
         {/* )} */}
         <label className="swap swap-rotate lg:ml-2">
           <input
@@ -139,8 +144,8 @@ const Navbar = () => {
       </div>
       <label className="swap-rotate swap btn-ghost btn-circle btn ml-2 bg-white dark:bg-slate-800 lg:hidden">
         <input
-        //   checked={navToggle}
-        //   onChange={() => setNavToggle((pre) => !pre)}
+          //   checked={navToggle}
+          //   onChange={() => setNavToggle((pre) => !pre)}
           type="checkbox"
         />
         <svg
@@ -163,7 +168,7 @@ const Navbar = () => {
         </svg>
       </label>
     </nav>
-    );
+  );
 };
 
 export default Navbar;
