@@ -1,16 +1,30 @@
 "use client";
 import { afterLoginNavData, beforeLoginNavData } from "@/data/navData";
+import useAuth from "@/hooks/useAuth";
 import useTheme from "@/hooks/useTheme";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import toast from "react-hot-toast";
 import NavLink from "./NavLink";
 
 const Navbar = () => {
-  const user = null;
-  const navData = user ? afterLoginNavData : beforeLoginNavData;
+  const { user, logout } = useAuth();
+  // console.log("User Info", user);
+  const { uid, displayName, photoURL } = user || {};
+
+  const navData = uid ? afterLoginNavData : beforeLoginNavData;
+
   const { theme, toggleTheme } = useTheme();
-const [navToggle, setNavToggle] = useState(false)
+
+  const [navToggle, setNavToggle] = useState(false);
+
+  // Logout handler
+  const handleLogout = async () => {
+    await logout();
+    toast.success("Logout Successfully!");
+  };
+
   return (
     <nav className="navbar sticky top-0 z-10 bg-slate-200 shadow-lg dark:bg-slate-900 lg:pr-3">
       <div className="flex-1">
@@ -19,7 +33,9 @@ const [navToggle, setNavToggle] = useState(false)
         </Link>
       </div>
       <div
-        className={`absolute ${navToggle ? 'left-0':"left-[-120%]"} top-[4.5rem] flex w-full flex-col bg-slate-200 pb-3 pt-2 transition-all duration-300 dark:bg-slate-900 lg:static lg:w-[unset] lg:flex-row lg:bg-transparent lg:pb-0 lg:pt-0 dark:lg:bg-transparent`}
+        className={`absolute ${
+          navToggle ? "left-0" : "left-[-120%]"
+        } top-[4.5rem] flex w-full flex-col bg-slate-200 pb-3 pt-2 transition-all duration-300 dark:bg-slate-900 lg:static lg:w-[unset] lg:flex-row lg:bg-transparent lg:pb-0 lg:pt-0 dark:lg:bg-transparent`}
       >
         <ul className="menu menu-horizontal flex-col px-1 lg:flex-row">
           {navData.map(({ path, title }) => (
@@ -79,51 +95,51 @@ const [navToggle, setNavToggle] = useState(false)
             </div>
           </div>
         </div>
-        {/* {uid && ( */}
-        <div className="dropdown-end dropdown">
-          <label tabIndex={0} className="btn-ghost btn-circle avatar btn">
-            <div className="w-10 rounded-full">
-              <Image
-                alt="user-logo"
-                //   title={displayName}
-                src={
-                  "https://i.ibb.co/0QZCv5C/png-clipart-user-profile-computer-icons-login-user-avatars-monochrome-black.png"
-                }
-                width={40}
-                height={40}
-                className="h-10 w-10 rounded-full"
-              />
-            </div>
-          </label>
-          <ul
-            tabIndex={0}
-            className="menu-compact dropdown-content menu rounded-box mt-3 w-52 bg-base-100 p-2 shadow"
-          >
-            <li className="mb-2 mt-1 text-center font-semibold">
-              {/* {displayName || "No User"} */}
-              {"Name"}
-            </li>
-            <div className="divider my-0"></div>
-            <li className="mb-2">
-              <NavLink
-                href="/profile"
-                className="text-lg"
-                activeClassName="text-blue-500"
-              >
-                Profile
-              </NavLink>
-            </li>
-            <li className="">
-              <button
-                //   onClick={handleLogout}
-                className="btn-warning btn content-center text-white"
-              >
-                Logout
-              </button>
-            </li>
-          </ul>
-        </div>
-        {/* )} */}
+        {uid && (
+          <div className="dropdown-end dropdown">
+            <label tabIndex={0} className="btn-ghost btn-circle avatar btn">
+              <div className="w-10 rounded-full">
+                <Image
+                  alt="user-logo"
+                  title={displayName}
+                  src={
+                    photoURL ||
+                    "https://i.ibb.co/0QZCv5C/png-clipart-user-profile-computer-icons-login-user-avatars-monochrome-black.png"
+                  }
+                  width={40}
+                  height={40}
+                  className="h-10 w-10 rounded-full"
+                />
+              </div>
+            </label>
+            <ul
+              tabIndex={0}
+              className="menu-compact dropdown-content menu rounded-box mt-3 w-52 bg-base-100 p-2 shadow"
+            >
+              <li className="mb-2 mt-1 text-center font-semibold">
+                {displayName || "No User"}
+              </li>
+              <div className="divider my-0"></div>
+              <li className="mb-2">
+                <NavLink
+                  href="/profile"
+                  className="text-lg"
+                  activeClassName="text-blue-500"
+                >
+                  Profile
+                </NavLink>
+              </li>
+              <li className="">
+                <button
+                  onClick={handleLogout}
+                  className="btn-warning btn content-center text-white"
+                >
+                  Logout
+                </button>
+              </li>
+            </ul>
+          </div>
+        )}
         <label className="swap swap-rotate lg:ml-2">
           <input
             onChange={toggleTheme}
@@ -148,8 +164,8 @@ const [navToggle, setNavToggle] = useState(false)
       </div>
       <label className="swap-rotate swap btn-ghost btn-circle btn ml-2 bg-white dark:bg-slate-800 lg:hidden">
         <input
-            checked={navToggle}
-            onChange={() => setNavToggle((pre) => !pre)}
+          checked={navToggle}
+          onChange={() => setNavToggle((pre) => !pre)}
           type="checkbox"
         />
         <svg

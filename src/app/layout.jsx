@@ -3,7 +3,8 @@ import Navbar from "@/components/Navbar";
 import Providers from "@/providers";
 import classNames from "@/utils/classNames";
 import { Roboto } from "next/font/google";
-import { Toaster } from "react-hot-toast";
+
+import Toaster from "@/components/Toaster";
 import "./globals.css";
 
 const roboto = Roboto({
