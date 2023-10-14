@@ -10,7 +10,7 @@ const useAuth = () => {
 
   if (!auth) {
     throw new Error(
-      "You must wrap your application with AuthProvider ot use the useAuth"
+      "You must wrap your application with AuthProvider to use the useAuth"
     );
   }
   return auth;
