@@ -19,16 +19,15 @@ const LoginForm = () => {
     const { email, password } = data;
     const toastId = toast.loading("Loading...");
     try {
-      const user = signIn(email, password);
+      await signIn(email, password);
+      await createJWT({ email });
       toast.dismiss(toastId);
-      toast.success("User signed in successfully")
+      toast.success("User signed in successfully");
     } catch (error) {
-        toast.dismiss(toastId);
-        toast.error(error.message || "User signed in failed")
+      toast.dismiss(toastId);
+      toast.error(error.message || "User signed in failed");
     }
   };
-
-
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="card-body">
