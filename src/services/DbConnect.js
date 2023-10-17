@@ -17,7 +17,7 @@ const DbConnect = async () => {
         deprecationErrors: true,
       },
     });
-    db = client.db("quick-cart");
+    db = client.db("quickCartDB");
     await client.db("admin").command({ ping: 1 });
     console.log(
       "Quick Cart you successfully connected to MongoDB!"

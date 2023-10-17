@@ -1,3 +1,4 @@
+
 import getCategories from "@/utils/getCategories";
 import SingleCategory from "./SingleCategory";
 
