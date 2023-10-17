@@ -1,0 +1,27 @@
+[
+  {
+    "_id": { "$oid": "616e68012f58f213a6745b1b" },
+    "name": "Clothing",
+    "imageUrl": "https://i.ibb.co/tXykRhd/airmax270-1.jpg"
+  },
+  {
+    "_id": { "$oid": "616e68012f58f213a6745b1d" },
+    "name": "Books",
+    "imageUrl": "https://i.ibb.co/fCDtM3j/greatgatsby-1.jpg"
+  },
+  {
+    "_id": { "$oid": "616e68012f58f213a6745b1e" },
+    "name": "Sports & Outdoors",
+    "imageUrl": "https://i.ibb.co/GMr8snG/dumbbellset-1.jpg"
+  },
+  {
+    "_id": { "$oid": "616e68012f58f213a6745b1a" },
+    "name": "Electronics",
+    "imageUrl": "https://i.ibb.co/vjVhFK7/iphone13pro1.jpg"
+  },
+  {
+    "_id": { "$oid": "616e68012f58f213a6745b1c" },
+    "name": "Home & Kitchen",
+    "imageUrl": "https://i.ibb.co/GPht6zN/baristaexpress-1.jpg"
+  }
+]
