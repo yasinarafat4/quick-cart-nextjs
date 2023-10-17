@@ -1,18 +1,22 @@
 import useAuth from "@/hooks/useAuth";
 import createJWT from "@/utils/createJWT";
+import { useRouter } from "next/navigation";
 import { startTransition } from "react";
 import { toast } from "react-hot-toast";
 import { FcGoogle } from "react-icons/fc";
 
-const GoogleLogin = () => {
+const GoogleLogin = ({ redirect }) => {
   const { googleLogin } = useAuth();
+  const { replace, refresh } = useRouter();
 
   const handleGoogleLogin = async () => {
     const toastId = toast.loading("Loading...");
     try {
-      const { user } = await googleLogin()
+      const { user } = await googleLogin();
       await createJWT({ email: user.email });
       startTransition(() => {
+        refresh();
+        replace(redirect);
         toast.dismiss(toastId);
         toast.success("User signed in successfully");
       });

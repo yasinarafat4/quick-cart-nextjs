@@ -3,6 +3,8 @@
 import GoogleLogin from "@/components/GoogleLogin";
 import useAuth from "@/hooks/useAuth";
 import Link from "next/link";
+import { useRouter, useSearchParams } from "next/navigation";
+import { startTransition } from "react";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 
@@ -15,14 +17,22 @@ const LoginForm = () => {
 
   const { signIn } = useAuth();
 
+  const navigate = useSearchParams();
+  const redirect = navigate.get("redirectUrl") || "/";
+  const { replace, refresh } = useRouter();
+
   const onSubmit = async (data) => {
     const { email, password } = data;
     const toastId = toast.loading("Loading...");
     try {
       await signIn(email, password);
       await createJWT({ email });
-      toast.dismiss(toastId);
-      toast.success("User signed in successfully");
+      startTransition(() => {
+        refresh();
+        replace(from);
+        toast.dismiss(toastId);
+        toast.success("User signed in successfully");
+      });
     } catch (error) {
       toast.dismiss(toastId);
       toast.error(error.message || "User signed in failed");
@@ -89,7 +99,7 @@ const LoginForm = () => {
         </Link>
       </p>
       <div className="divider mt-5">OR</div>
-      <GoogleLogin />
+      <GoogleLogin redirect={redirect} />
     </form>
   );
 };

@@ -4,6 +4,8 @@ import GoogleLogin from "@/components/GoogleLogin";
 import useAuth from "@/hooks/useAuth";
 import createJWT from "@/utils/createJWT";
 import Link from "next/link";
+import { useRouter, useSearchParams } from "next/navigation";
+import { startTransition } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
 
@@ -17,6 +19,9 @@ const SignupForm = () => {
   } = useForm();
 
   const { createUser, profileUpdate } = useAuth();
+  const navigate = useSearchParams();
+  const redirect = navigate.get("redirectUrl") || "/";
+  const { replace, refresh } = useRouter();
 
   const uploadImage = async (event) => {
     const formData = new FormData();
@@ -48,13 +53,17 @@ const SignupForm = () => {
     const toastId = toast.loading("Loading...");
     try {
       await createUser(email, password);
-      await createJWT({email})
+      await createJWT({ email });
       await profileUpdate({
         displayName: name,
         photoURL: photo,
       });
-      toast.dismiss(toastId);
-      toast.success("User signed up successfully");
+      startTransition(() => {
+        refresh();
+        replace(redirect);
+        toast.dismiss(toastId);
+        toast.success("User signed up successfully");
+      });
     } catch (error) {
       toast.dismiss(toastId);
       toast.error(error.message || "User signed up failed");

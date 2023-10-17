@@ -4,6 +4,7 @@ import useAuth from "@/hooks/useAuth";
 import useTheme from "@/hooks/useTheme";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
 import { useState } from "react";
 import toast from "react-hot-toast";
 import NavLink from "./NavLink";
@@ -14,15 +15,33 @@ const Navbar = () => {
   const { uid, displayName, photoURL } = user || {};
 
   const navData = uid ? afterLoginNavData : beforeLoginNavData;
-
   const { theme, toggleTheme } = useTheme();
+  const { replace, refresh } = useRouter();
+  const path = usePathname();
 
   const [navToggle, setNavToggle] = useState(false);
 
   // Logout handler
   const handleLogout = async () => {
-    await logout();
-    toast.success("Logout Successfully!");
+    const toastId = toast.loading("Loading...");
+    try {
+      await logout();
+      const res = await fetch("/api/auth/logout", {
+        method: "POST",
+      });
+      await res.json();
+      if (path.includes("/dashboard") || path.includes("/profile")) {
+        replace(`/login?redirectUrl=${path}`);
+      }
+      toast.dismiss(toastId);
+      toast.success("Successfully logout!");
+      startTransition(() => {
+        refresh();
+      });
+    } catch (error) {
+      toast.error("Logout Failed!");
+      toast.dismiss(toastId);
+    }
   };
 
   return (
