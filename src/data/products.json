@@ -4,9 +4,9 @@
     "title": "Levi's 501 Jeans",
     "categoryId": "616e68012f58f213a6745b1b",
     "imageUrls": [
-      "/products/levis501_1.jpg",
-      "/products/levis501_2.jpg",
-      "/products/levis501_3.jpg"
+      "https://i.ibb.co/SRZhxfD/levis501-1.jpg",
+      "https://i.ibb.co/RjdkcSM/levis501-2.webp",
+      "https://i.ibb.co/nrmMLv7/levis501-3.jpg"
     ],
     "price": { "$numberDouble": "69.99" },
     "ratings": { "$numberDouble": "4.5" },
@@ -23,9 +23,9 @@
     "title": "Nike Air Max 270",
     "categoryId": "616e68012f58f213a6745b1b",
     "imageUrls": [
-      "/products/airmax270_1.jpg",
-      "/products/airmax270_2.jpg",
-      "/products/airmax270_3.jpg"
+      "https://i.ibb.co/tXykRhd/airmax270-1.jpg",
+      "https://i.ibb.co/P1NFkcJ/airmax270-2.webp",
+      "https://i.ibb.co/0ZKfVN3/airmax270-3.webp"
     ],
     "price": { "$numberDouble": "149.99" },
     "ratings": { "$numberDouble": "4.7" },
@@ -42,9 +42,9 @@
     "title": "Breville Barista Express",
     "categoryId": "616e68012f58f213a6745b1c",
     "imageUrls": [
-      "/products/baristaexpress_1.jpg",
-      "/products/baristaexpress_2.jpg",
-      "/products/baristaexpress_3.jpg"
+      "https://i.ibb.co/GPht6zN/baristaexpress-1.jpg",
+      "https://i.ibb.co/3fmKrwq/baristaexpress-2.webp",
+      "https://i.ibb.co/prTKmwR/baristaexpress-3.jpg"
     ],
     "price": { "$numberInt": "699" },
     "ratings": { "$numberDouble": "4.9" },
@@ -61,9 +61,9 @@
     "title": "Sony PlayStation 5",
     "categoryId": "616e68012f58f213a6745b1c",
     "imageUrls": [
-      "/products/ps5_1.jpg",
-      "/products/ps5_2.jpg",
-      "/products/ps5_3.jpg"
+      "https://i.ibb.co/NghB3z6/ps5-1.jpg",
+      "https://i.ibb.co/pzrMMv5/ps5-2.webp",
+      "https://i.ibb.co/qFrkywV/ps5-3.jpg"
     ],
     "price": { "$numberInt": "499" },
     "ratings": { "$numberDouble": "4.8" },
@@ -80,9 +80,9 @@
     "title": "To Kill a Mockingbird",
     "categoryId": "616e68012f58f213a6745b1d",
     "imageUrls": [
-      "/products/tokillamockingbird_1.jpg",
-      "/products/tokillamockingbird_2.jpg",
-      "/products/tokillamockingbird_3.jpg"
+      "https://i.ibb.co/jrsMj9H/tokillamockingbird-1.jpg",
+      "https://i.ibb.co/HqGt3Zg/tokillamockingbird-2.jpg",
+      "https://i.ibb.co/R27W2tg/tokillamockingbird-3.jpg"
     ],
     "price": { "$numberDouble": "12.99" },
     "ratings": { "$numberDouble": "4.7" },
@@ -99,9 +99,9 @@
     "title": "The Great Gatsby",
     "categoryId": "616e68012f58f213a6745b1d",
     "imageUrls": [
-      "/products/greatgatsby_1.jpg",
-      "/products/greatgatsby_2.jpg",
-      "/products/greatgatsby_3.jpg"
+      "https://i.ibb.co/fCDtM3j/greatgatsby-1.jpg",
+      "https://i.ibb.co/nknTqVH/greatgatsby-2.jpg",
+      "https://i.ibb.co/xgzBVBH/greatgatsby-3.jpg"
     ],
     "price": { "$numberDouble": "9.99" },
     "ratings": { "$numberDouble": "4.5" },
@@ -118,9 +118,9 @@
     "title": "Dumbbell Set",
     "categoryId": "616e68012f58f213a6745b1e",
     "imageUrls": [
-      "/products/dumbbellset_1.jpg",
-      "/products/dumbbellset_2.jpg",
-      "/products/dumbbellset_3.jpg"
+      "https://i.ibb.co/GMr8snG/dumbbellset-1.jpg",
+      "https://i.ibb.co/gVKV6YS/dumbbellset-3.jpg",
+      "https://i.ibb.co/6yqC3vZ/dumbbellset-2.webp"
     ],
     "price": { "$numberDouble": "79.99" },
     "ratings": { "$numberDouble": "4.6" },
@@ -137,9 +137,9 @@
     "title": "Yoga Mat",
     "categoryId": "616e68012f58f213a6745b1e",
     "imageUrls": [
-      "/products/yogamat_2.jpg",
-      "/products/yogamat_1.jpg",
-      "/products/yogamat_3.jpg"
+      "https://i.ibb.co/NWqynTx/yogamat-1.webp",
+      "https://i.ibb.co/dBJGtMV/yogamat-2.jpg",
+      "https://i.ibb.co/6Bx60MM/yogamat-3.webp"
     ],
     "price": { "$numberDouble": "29.99" },
     "ratings": { "$numberDouble": "4.7" },
@@ -156,9 +156,9 @@
     "title": "Resistance Bands",
     "categoryId": "616e68012f58f213a6745b1e",
     "imageUrls": [
-      "/products/resistancebands_1.jpg",
-      "/products/resistancebands_2.jpg",
-      "/products/resistancebands_3.jpg"
+      "https://i.ibb.co/WpMZHDm/resistancebands-1.jpg",
+      "https://i.ibb.co/r3CXc6q/resistancebands-2.jpg",
+      "https://i.ibb.co/nbYKbNQ/resistancebands-3.jpg"
     ],
     "price": { "$numberDouble": "19.99" },
     "ratings": { "$numberDouble": "4.4" },
@@ -175,9 +175,9 @@
     "title": "iPhone 13 Pro",
     "categoryId": "616e68012f58f213a6745b1a",
     "imageUrls": [
-      "/products/iphone13pro1.jpg",
-      "/products/iphone13pro2.jpg",
-      "/products/iphone13pro3.jpg"
+      "https://i.ibb.co/vjVhFK7/iphone13pro1.jpg",
+      "https://i.ibb.co/9p139Ys/iphone13pro2.jpg",
+      "https://i.ibb.co/RyqfLzh/iphone13pro3.jpg"
     ],
     "price": { "$numberInt": "1099" },
     "ratings": { "$numberDouble": "4.8" },
@@ -194,9 +194,9 @@
     "title": "Samsung Galaxy S21",
     "categoryId": "616e68012f58f213a6745b1a",
     "imageUrls": [
-      "/products/galaxys21_1.jpg",
-      "/products/galaxys21_2.jpg",
-      "/products/galaxys21_3.jpg"
+      "https://i.ibb.co/gmyLw7G/galaxys21-1.jpg",
+      "https://i.ibb.co/svnPvN4/galaxys21-2.jpg",
+      "https://i.ibb.co/4YbWzCm/galaxys21-3.jpg"
     ],
     "price": { "$numberInt": "999" },
     "ratings": { "$numberDouble": "4.7" },
@@ -213,9 +213,9 @@
     "title": "Canon EOS R6",
     "categoryId": "616e68012f58f213a6745b1a",
     "imageUrls": [
-      "/products/eosr6_1.jpg",
-      "/products/eosr6_2.jpg",
-      "/products/eosr6_3.jpg"
+      "https://i.ibb.co/gRt33T2/eosr6-1.jpg",
+      "https://i.ibb.co/rMLn4Fq/eosr6-2.jpg",
+      "https://i.ibb.co/s69R8rR/eosr6-3.png"
     ],
     "price": { "$numberInt": "2499" },
     "ratings": { "$numberDouble": "4.9" },
@@ -232,9 +232,9 @@
     "title": "The Da Vinci Code",
     "categoryId": "616e68012f58f213a6745b1d",
     "imageUrls": [
-      "/products/davincicode_1.jpg",
-      "/products/davincicode_2.jpg",
-      "/products/davincicode_3.jpg"
+      "https://i.ibb.co/VM8P5yR/davincicode-1.jpg",
+      "https://i.ibb.co/gdY5Msj/davincicode-2.jpg",
+      "https://i.ibb.co/xFM0j3K/davincicode-3.webp"
     ],
     "price": { "$numberDouble": "14.99" },
     "ratings": { "$numberDouble": "4.3" },

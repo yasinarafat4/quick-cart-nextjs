@@ -40,7 +40,7 @@ const Navbar = () => {
       });
     } catch (error) {
       toast.dismiss(toastId);
-      toast.error("Logout Failed!");
+      console.error("Logout Failed!");
     }
   };
 
