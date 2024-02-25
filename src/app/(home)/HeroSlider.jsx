@@ -1,9 +1,10 @@
 "use client"
 
-import mainSlider from "@/data/mainSlider";
+
 import "swiper/css/bundle";
 import { Autoplay, EffectFade, Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
+import mainSlider from "../../data/mainSlider";
 import SingleHeroSlider from "./SingleHeroSlider";
 
 const HeroSlider = () => {
