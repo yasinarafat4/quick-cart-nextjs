@@ -1,7 +1,7 @@
 const AboutPage = () => {
     return (
         <div>
-            About Page
+            About Page After redeploy
         </div>
     );
 };
